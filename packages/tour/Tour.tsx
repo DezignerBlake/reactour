@@ -1,6 +1,6 @@
 import React, { useEffect, MouseEventHandler } from 'react'
 import { Observables } from '@reactour/utils'
-import { Mask } from '@reactour/mask'
+import { Mask } from '../mask'
 import { Popover } from '@reactour/popover'
 import { useSizes } from './hooks'
 import { TourProps, Padding } from './types'
