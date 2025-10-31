@@ -1,19 +1,19 @@
-import { useEffect, useContext } from 'react'
 import { useTour } from '@reactour/tour'
 import { ModalContext } from 'modaaals'
-import Section from './Section'
-import Logo from './Logo'
-import Text from './Text'
-import Heading from './Heading'
-import Row from './Row'
+import { useContext, useEffect } from 'react'
 import Box from './Box'
-import Scrollable from './Scrollable'
-import Footer from './Footer'
-import Image from './Image'
 import { Button, Link } from './Button'
 import Dropdown from './Dropdown'
+import Footer from './Footer'
+import Heading from './Heading'
+import Image from './Image'
 import ImagesRow from './ImagesRow'
+import Logo from './Logo'
+import Row from './Row'
+import Scrollable from './Scrollable'
+import Section from './Section'
 import Tabs from './Tabs'
+import Text from './Text'
 import { tourConfig, tourConfigAlt } from './config'
 
 export default function Home() {
@@ -87,7 +87,7 @@ export default function Home() {
           h="4"
           target="_blank"
           rel="noopener noreferrer"
-          href="https://github.com/elrumordelaluz/reactour"
+          href="https://github.com/DezignerBlake/reactour"
         >
           Github
         </Link>
@@ -393,13 +393,13 @@ export default function Home() {
           </span>{' '}
           by{' '}
           <Link
-            href="https://twitter.com/elrumordelaluz"
+            href="https://twitter.com/DezignerBlake"
             target="_blank"
             rel="noopener noreferrer"
             color="white"
             nospaces
           >
-            @elrumordelaluz
+            @DezignerBlake
           </Link>{' '}
           ·{' '}
           <Link
@@ -412,7 +412,7 @@ export default function Home() {
           </Link>{' '}
           ·{' '}
           <Link
-            href="https://github.com/elrumordelaluz/reactour"
+            href="https://github.com/DezignerBlake/reactour"
             target="_blank"
             rel="noopener noreferrer"
             nospaces

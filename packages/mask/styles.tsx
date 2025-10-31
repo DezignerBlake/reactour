@@ -82,7 +82,7 @@ export type getStylesType = (
 ) => {}
 
 export function stylesMatcher(styles: StylesObj) {
-  return (key: StyleKey, state: {}): React.CSSProperties & { rx?: number } => {
+  return (key: StyleKey, state: {}): React.CSSProperties & { rx?: number, x?: number, y?: number } => {
     const base = defaultStyles[key](state)
     const custom = styles[key]
     return custom ? custom(base, state) : base

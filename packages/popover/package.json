@@ -42,8 +42,8 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/elrumordelaluz/reactour.git",
+    "url": "https://github.com/DezignerBlake/reactour.git",
     "directory": "packages/popover"
   },
-  "homepage": "https://github.com/elrumordelaluz/reactour/tree/main/packages/popover"
+  "homepage": "https://github.com/DezignerBlake/reactour/tree/main/packages/popover"
 }

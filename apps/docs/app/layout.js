@@ -1,6 +1,6 @@
+import Script from 'next/script'
 import { Footer, Layout, Navbar } from 'nextra-theme-docs'
 import { getPageMap } from 'nextra/page-map'
-import Script from 'next/script'
 import './globals.css'
 
 export const metadata = {
@@ -54,7 +54,7 @@ function Logo() {
 const navbar = (
   <Navbar
     logo={<Logo />}
-    projectLink="https://github.com/elrumordelaluz/reactour"
+    projectLink="https://github.com/DezignerBlake/reactour"
   />
 )
 const footer = (
@@ -85,9 +85,9 @@ const footer = (
           target="_blank"
           rel="noopener noreferrer"
           title="vercel.com homepage"
-          href="https://elrumordelaluz.com"
+          href="https://DezignerBlake.com"
         >
-          elrumordelaluz
+          DezignerBlake
         </a>
       </p>
     </div>
@@ -112,7 +112,7 @@ export default async function RootLayout({ children }) {
         <Layout
           navbar={navbar}
           pageMap={await getPageMap()}
-          docsRepositoryBase="https://github.com/elrumordelaluz/reactour/tree/main/apps/docs"
+          docsRepositoryBase="https://github.com/DezignerBlake/reactour/tree/main/apps/docs"
           footer={footer}
           toc={{
             backToTop: true,

@@ -1,6 +1,6 @@
 <p align="center">
 <a href="reactour.js.org">
-  <img alt="Reactour" title="Reactour" src="https://raw.githubusercontent.com/elrumordelaluz/reactour/main/logo.svg" width="250"></a>
+  <img alt="Reactour" title="Reactour" src="https://raw.githubusercontent.com/DezignerBlake/reactour/main/logo.svg" width="250"></a>
 </p>
 <p align="center" style="margin-top: 40px;margin-bottom: 40px;">
   <strong>Tourist Guide</strong> into your React Components
@@ -10,7 +10,7 @@
 
 [https://docs.reactour.dev](https://docs.reactour.dev/tour/quickstart)
 
-> This documentation is for the latest release, which uses [npm scoped package](https://docs.npmjs.com/cli/v7/using-npm/scope) `@reactour`. The original `reactour` is now on branch `v1` and its documentation can be found [here](https://github.com/elrumordelaluz/reactour/tree/v1).
+> This documentation is for the latest release, which uses [npm scoped package](https://docs.npmjs.com/cli/v7/using-npm/scope) `@reactour`. The original `reactour` is now on branch `v1` and its documentation can be found [here](https://github.com/DezignerBlake/reactour/tree/v1).
 
 ## Install
 
@@ -68,7 +68,7 @@ function App() {
 
 #### Playground
 
-The [Playground](https://github.com/elrumordelaluz/reactour/tree/main/packages/playground) is the perfect place to play aroud with all `@reactour` _Components_. [Here](https://reactour.vercel.app) is an online version.
+The [Playground](https://github.com/DezignerBlake/reactour/tree/main/packages/playground) is the perfect place to play aroud with all `@reactour` _Components_. [Here](https://reactour.vercel.app) is an online version.
 
 #### Sandboxes
 
@@ -212,7 +212,7 @@ Prop to customize styles for the different parts of the _Mask_, _Popover_ and _T
 
 #### Style keys and props available
 
-Refer to [Mask docs](https://github.com/elrumordelaluz/reactour/tree/main/packages/mask) and [Popover docs](https://github.com/elrumordelaluz/reactour/tree/main/packages/popover) for its specific Components
+Refer to [Mask docs](https://github.com/DezignerBlake/reactour/tree/main/packages/mask) and [Popover docs](https://github.com/DezignerBlake/reactour/tree/main/packages/popover) for its specific Components
 
 ##### Tour Components
 
@@ -600,11 +600,11 @@ Option to navigate and show _Navigation_ in right-to-left mode
 
 ### `maskId?: string`
 
-Mask ID to pass directly into the [Mask component](https://github.com/elrumordelaluz/reactour/tree/main/packages/mask#maskid-string)
+Mask ID to pass directly into the [Mask component](https://github.com/DezignerBlake/reactour/tree/main/packages/mask#maskid-string)
 
 ### `clipId?: string`
 
-Clip ID to pass directly into the [Mask component](https://github.com/elrumordelaluz/reactour/tree/main/packages/mask#clipid-string)
+Clip ID to pass directly into the [Mask component](https://github.com/DezignerBlake/reactour/tree/main/packages/mask#clipid-string)
 
 ### `onTransition?: PositionType`
 

@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="Reactour" title="Reactour" src="https://raw.githubusercontent.com/elrumordelaluz/reactour/main/packages/popover/logo.svg" width="400">
+  <img alt="Reactour" title="Reactour" src="https://raw.githubusercontent.com/DezignerBlake/reactour/main/packages/popover/logo.svg" width="400">
 </p>
 <p align="center">
   A popover positioned based on certain values
@@ -112,7 +112,7 @@ Prop to customize styles for the different parts of the _Mask_ using a function 
 
 ### `refresher?: any`
 
-Any value that if changed, updates [rect](https://github.com/elrumordelaluz/reactour/tree/main/packages/utils#refresher-any) calculations
+Any value that if changed, updates [rect](https://github.com/DezignerBlake/reactour/tree/main/packages/utils#refresher-any) calculations
 
 #### Example
 

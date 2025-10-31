@@ -1,6 +1,6 @@
+import { getPadding, getWindow, RectResult, safe } from '@reactour/utils'
 import React, { MouseEventHandler } from 'react'
-import { StylesObj, stylesMatcher } from './styles'
-import { safe, getWindow, getPadding, RectResult } from '@reactour/utils'
+import { stylesMatcher, StylesObj } from './styles'
 
 const Mask: React.FC<MaskProps> = ({
   padding = 10,
@@ -75,11 +75,11 @@ const Mask: React.FC<MaskProps> = ({
           </mask>
           <clipPath id={clipID}>
             <polygon
-              points={`0 0, 0 ${windowHeight}, ${maskAreaStyles.x} ${windowHeight}, ${maskAreaStyles.x} ${maskAreaStyles.y}, ${
-                maskAreaStyles.x + width
-              } ${maskAreaStyles.y}, ${maskAreaStyles.x + width} ${maskAreaStyles.y + height}, ${maskAreaStyles.x} ${
-                maskAreaStyles.y + height
-              }, ${maskAreaStyles.x} ${windowHeight}, ${windowWidth} ${windowHeight}, ${windowWidth} 0`}
+              points={`0 0, 0 ${windowHeight}, ${(maskAreaStyles.x || left)} ${windowHeight}, ${(maskAreaStyles.x || left)} ${(maskAreaStyles.y || top)}, ${
+                (maskAreaStyles.x || left) + width
+              } ${(maskAreaStyles.y || top)}, ${(maskAreaStyles.x || left) + width} ${(maskAreaStyles.y || top) + height}, ${(maskAreaStyles.x || left)} ${
+                (maskAreaStyles.y || top) + height
+              }, ${(maskAreaStyles.x || left)} ${windowHeight}, ${windowWidth} ${windowHeight}, ${windowWidth} 0`}
             />
           </clipPath>
         </defs>
