@@ -75,11 +75,11 @@ const Mask: React.FC<MaskProps> = ({
           </mask>
           <clipPath id={clipID}>
             <polygon
-              points={`0 0, 0 ${windowHeight}, ${left} ${windowHeight}, ${left} ${top}, ${
-                left + width
-              } ${top}, ${left + width} ${top + height}, ${left} ${
-                top + height
-              }, ${left} ${windowHeight}, ${windowWidth} ${windowHeight}, ${windowWidth} 0`}
+              points={`0 0, 0 ${windowHeight}, ${maskAreaStyles.x} ${windowHeight}, ${maskAreaStyles.x} ${maskAreaStyles.y}, ${
+                maskAreaStyles.x + width
+              } ${maskAreaStyles.y}, ${maskAreaStyles.x + width} ${maskAreaStyles.y + height}, ${maskAreaStyles.x} ${
+                maskAreaStyles.y + height
+              }, ${maskAreaStyles.x} ${windowHeight}, ${windowWidth} ${windowHeight}, ${windowWidth} 0`}
             />
           </clipPath>
         </defs>
