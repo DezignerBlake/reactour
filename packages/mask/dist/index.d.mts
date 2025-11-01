@@ -1,4 +1,4 @@
-import { RectResult } from '@reactour/utils';
+import { RectResult } from '@dezignerblake/utils';
 import React$1, { MouseEventHandler } from 'react';
 
 type StyleFn = (props: {

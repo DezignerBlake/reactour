@@ -1,13 +1,13 @@
-import { useState, useRef, useEffect, useCallback } from 'react'
-import { Mask } from '@reactour/mask'
+import { Mask } from '@dezignerblake/mask'
 import {
-  useRect,
-  getRect,
-  useIntersectionObserver,
-  RectResult,
-} from '@reactour/utils'
+    getRect,
+    RectResult,
+    useIntersectionObserver,
+    useRect,
+} from '@dezignerblake/utils'
+import { CSSObject, keyframes } from '@emotion/react'
 import { motion } from 'framer-motion'
-import { keyframes, CSSObject } from '@emotion/react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { useMousePosition } from '../hooks'
 
 export default function Docs() {

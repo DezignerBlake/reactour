@@ -1,18 +1,18 @@
-import React, { RefObject, useRef } from 'react'
 import {
-  useRect,
-  bestPositionOf,
-  isOutsideX,
-  isOutsideY,
-  PositionsObjectType,
-  CoordsObjectType,
-  CoordType,
-  getWindow,
-  getPadding,
-  RectResult,
-} from '@reactour/utils'
+    bestPositionOf,
+    CoordsObjectType,
+    CoordType,
+    getPadding,
+    getWindow,
+    isOutsideX,
+    isOutsideY,
+    PositionsObjectType,
+    RectResult,
+    useRect,
+} from '@dezignerblake/utils'
+import React, { useRef } from 'react'
 
-import { StylesObj, stylesMatcher } from './styles'
+import { stylesMatcher, StylesObj } from './styles'
 
 const Popover: React.FC<PopoverProps> = ({
   children,

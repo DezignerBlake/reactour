@@ -31,11 +31,12 @@ var __objRest = (source, exclude) => {
 };
 
 // Tour.tsx
+import { Popover } from "@dezignerblake/popover";
+import { Observables } from "@dezignerblake/utils";
 import React7, { useEffect as useEffect3 } from "react";
-import { Observables } from "@reactour/utils";
 
 // ../mask/dist/index.mjs
-import { getPadding, getWindow, safe } from "@reactour/utils";
+import { getPadding, getWindow, safe } from "@dezignerblake/utils";
 import React from "react";
 var defaultStyles = {
   maskWrapper: () => ({
@@ -214,160 +215,8 @@ function uniqueId(prefix) {
   return prefix + Math.random().toString(36).substring(2, 16);
 }
 
-// Tour.tsx
-import { Popover } from "@reactour/popover";
-
-// hooks.tsx
-import { useEffect, useCallback, useState } from "react";
-import { inView, smoothScroll, getWindow as getWindow2, getRect } from "@reactour/utils";
-var initialState = {
-  bottom: 0,
-  height: 0,
-  left: 0,
-  right: 0,
-  top: 0,
-  width: 0,
-  windowWidth: 0,
-  windowHeight: 0,
-  x: 0,
-  y: 0
-};
-function useSizes(step, scrollOptions = {
-  block: "center",
-  behavior: "smooth",
-  inViewThreshold: 0
-}) {
-  const [transition, setTransition] = useState(false);
-  const [observing, setObserving] = useState(false);
-  const [isHighlightingObserved, setIsHighlightingObserved] = useState(false);
-  const [refresher, setRefresher] = useState(null);
-  const [dimensions, setDimensions] = useState(initialState);
-  const target = (step == null ? void 0 : step.selector) instanceof Element ? step == null ? void 0 : step.selector : document.querySelector(step == null ? void 0 : step.selector);
-  const handleResize = useCallback(() => {
-    const _a = getHighlightedRect(
-      target,
-      step == null ? void 0 : step.highlightedSelectors,
-      step == null ? void 0 : step.bypassElem
-    ), { hasHighligtedElems } = _a, newDimensions = __objRest(_a, ["hasHighligtedElems"]);
-    if (Object.entries(dimensions).some(
-      ([key, value]) => newDimensions[key] !== value
-    )) {
-      setDimensions(newDimensions);
-    }
-  }, [target, step == null ? void 0 : step.highlightedSelectors, dimensions]);
-  useEffect(() => {
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [target, step == null ? void 0 : step.highlightedSelectors, refresher]);
-  useEffect(() => {
-    const isInView = inView(__spreadProps(__spreadValues({}, dimensions), {
-      threshold: scrollOptions.inViewThreshold
-    }));
-    if (!isInView && target) {
-      setTransition(true);
-      smoothScroll(target, scrollOptions).then(() => {
-        if (!observing) setRefresher(Date.now());
-      }).finally(() => {
-        setTransition(false);
-      });
-    }
-  }, [dimensions]);
-  const observableRefresher = useCallback(() => {
-    setObserving(true);
-    const _a = getHighlightedRect(
-      target,
-      step == null ? void 0 : step.highlightedSelectors,
-      step == null ? void 0 : step.bypassElem
-    ), { hasHighligtedElems } = _a, dimesions = __objRest(_a, ["hasHighligtedElems"]);
-    setIsHighlightingObserved(hasHighligtedElems);
-    setDimensions(dimesions);
-    setObserving(false);
-  }, [target, step == null ? void 0 : step.highlightedSelectors, dimensions]);
-  return {
-    sizes: dimensions,
-    transition,
-    target,
-    observableRefresher,
-    isHighlightingObserved
-  };
-}
-function getHighlightedRect(node, highlightedSelectors = [], bypassElem = true) {
-  let hasHighligtedElems = false;
-  const { w: windowWidth, h: windowHeight } = getWindow2();
-  if (!highlightedSelectors) {
-    return __spreadProps(__spreadValues({}, getRect(node)), {
-      windowWidth,
-      windowHeight,
-      hasHighligtedElems: false
-    });
-  }
-  let attrs = getRect(node);
-  let altAttrs = {
-    bottom: 0,
-    height: 0,
-    left: windowWidth,
-    right: 0,
-    top: windowHeight,
-    width: 0
-  };
-  for (const selector of highlightedSelectors) {
-    const element = document.querySelector(selector);
-    if (!element || element.style.display === "none" || element.style.visibility === "hidden") {
-      continue;
-    }
-    const rect = getRect(element);
-    hasHighligtedElems = true;
-    if (bypassElem || !node) {
-      if (rect.top < altAttrs.top) {
-        altAttrs.top = rect.top;
-      }
-      if (rect.right > altAttrs.right) {
-        altAttrs.right = rect.right;
-      }
-      if (rect.bottom > altAttrs.bottom) {
-        altAttrs.bottom = rect.bottom;
-      }
-      if (rect.left < altAttrs.left) {
-        altAttrs.left = rect.left;
-      }
-      altAttrs.width = altAttrs.right - altAttrs.left;
-      altAttrs.height = altAttrs.bottom - altAttrs.top;
-    } else {
-      if (rect.top < attrs.top) {
-        attrs.top = rect.top;
-      }
-      if (rect.right > attrs.right) {
-        attrs.right = rect.right;
-      }
-      if (rect.bottom > attrs.bottom) {
-        attrs.bottom = rect.bottom;
-      }
-      if (rect.left < attrs.left) {
-        attrs.left = rect.left;
-      }
-      attrs.width = attrs.right - attrs.left;
-      attrs.height = attrs.bottom - attrs.top;
-    }
-  }
-  const bypassable = bypassElem || !node ? altAttrs.width > 0 && altAttrs.height > 0 : false;
-  return {
-    left: (bypassable ? altAttrs : attrs).left,
-    top: (bypassable ? altAttrs : attrs).top,
-    right: (bypassable ? altAttrs : attrs).right,
-    bottom: (bypassable ? altAttrs : attrs).bottom,
-    width: (bypassable ? altAttrs : attrs).width,
-    height: (bypassable ? altAttrs : attrs).height,
-    windowWidth,
-    windowHeight,
-    hasHighligtedElems,
-    x: attrs.x,
-    y: attrs.y
-  };
-}
-
 // Keyboard.tsx
-import { useEffect as useEffect2 } from "react";
+import { useEffect } from "react";
 var Keyboard = ({
   disableKeyboardNavigation,
   setCurrentStep,
@@ -425,7 +274,7 @@ var Keyboard = ({
       }
     }
   }
-  useEffect2(() => {
+  useEffect(() => {
     window.addEventListener("keydown", keyDownHandler, false);
     return () => {
       window.removeEventListener("keydown", keyDownHandler);
@@ -828,6 +677,155 @@ var PopoverContent = ({
   ) : null);
 };
 var PopoverContent_default = PopoverContent;
+
+// hooks.tsx
+import { getRect, getWindow as getWindow2, inView, smoothScroll } from "@dezignerblake/utils";
+import { useCallback, useEffect as useEffect2, useState } from "react";
+var initialState = {
+  bottom: 0,
+  height: 0,
+  left: 0,
+  right: 0,
+  top: 0,
+  width: 0,
+  windowWidth: 0,
+  windowHeight: 0,
+  x: 0,
+  y: 0
+};
+function useSizes(step, scrollOptions = {
+  block: "center",
+  behavior: "smooth",
+  inViewThreshold: 0
+}) {
+  const [transition, setTransition] = useState(false);
+  const [observing, setObserving] = useState(false);
+  const [isHighlightingObserved, setIsHighlightingObserved] = useState(false);
+  const [refresher, setRefresher] = useState(null);
+  const [dimensions, setDimensions] = useState(initialState);
+  const target = (step == null ? void 0 : step.selector) instanceof Element ? step == null ? void 0 : step.selector : document.querySelector(step == null ? void 0 : step.selector);
+  const handleResize = useCallback(() => {
+    const _a = getHighlightedRect(
+      target,
+      step == null ? void 0 : step.highlightedSelectors,
+      step == null ? void 0 : step.bypassElem
+    ), { hasHighligtedElems } = _a, newDimensions = __objRest(_a, ["hasHighligtedElems"]);
+    if (Object.entries(dimensions).some(
+      ([key, value]) => newDimensions[key] !== value
+    )) {
+      setDimensions(newDimensions);
+    }
+  }, [target, step == null ? void 0 : step.highlightedSelectors, dimensions]);
+  useEffect2(() => {
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [target, step == null ? void 0 : step.highlightedSelectors, refresher]);
+  useEffect2(() => {
+    const isInView = inView(__spreadProps(__spreadValues({}, dimensions), {
+      threshold: scrollOptions.inViewThreshold
+    }));
+    if (!isInView && target) {
+      setTransition(true);
+      smoothScroll(target, scrollOptions).then(() => {
+        if (!observing) setRefresher(Date.now());
+      }).finally(() => {
+        setTransition(false);
+      });
+    }
+  }, [dimensions]);
+  const observableRefresher = useCallback(() => {
+    setObserving(true);
+    const _a = getHighlightedRect(
+      target,
+      step == null ? void 0 : step.highlightedSelectors,
+      step == null ? void 0 : step.bypassElem
+    ), { hasHighligtedElems } = _a, dimesions = __objRest(_a, ["hasHighligtedElems"]);
+    setIsHighlightingObserved(hasHighligtedElems);
+    setDimensions(dimesions);
+    setObserving(false);
+  }, [target, step == null ? void 0 : step.highlightedSelectors, dimensions]);
+  return {
+    sizes: dimensions,
+    transition,
+    target,
+    observableRefresher,
+    isHighlightingObserved
+  };
+}
+function getHighlightedRect(node, highlightedSelectors = [], bypassElem = true) {
+  let hasHighligtedElems = false;
+  const { w: windowWidth, h: windowHeight } = getWindow2();
+  if (!highlightedSelectors) {
+    return __spreadProps(__spreadValues({}, getRect(node)), {
+      windowWidth,
+      windowHeight,
+      hasHighligtedElems: false
+    });
+  }
+  let attrs = getRect(node);
+  let altAttrs = {
+    bottom: 0,
+    height: 0,
+    left: windowWidth,
+    right: 0,
+    top: windowHeight,
+    width: 0
+  };
+  for (const selector of highlightedSelectors) {
+    const element = document.querySelector(selector);
+    if (!element || element.style.display === "none" || element.style.visibility === "hidden") {
+      continue;
+    }
+    const rect = getRect(element);
+    hasHighligtedElems = true;
+    if (bypassElem || !node) {
+      if (rect.top < altAttrs.top) {
+        altAttrs.top = rect.top;
+      }
+      if (rect.right > altAttrs.right) {
+        altAttrs.right = rect.right;
+      }
+      if (rect.bottom > altAttrs.bottom) {
+        altAttrs.bottom = rect.bottom;
+      }
+      if (rect.left < altAttrs.left) {
+        altAttrs.left = rect.left;
+      }
+      altAttrs.width = altAttrs.right - altAttrs.left;
+      altAttrs.height = altAttrs.bottom - altAttrs.top;
+    } else {
+      if (rect.top < attrs.top) {
+        attrs.top = rect.top;
+      }
+      if (rect.right > attrs.right) {
+        attrs.right = rect.right;
+      }
+      if (rect.bottom > attrs.bottom) {
+        attrs.bottom = rect.bottom;
+      }
+      if (rect.left < attrs.left) {
+        attrs.left = rect.left;
+      }
+      attrs.width = attrs.right - attrs.left;
+      attrs.height = attrs.bottom - attrs.top;
+    }
+  }
+  const bypassable = bypassElem || !node ? altAttrs.width > 0 && altAttrs.height > 0 : false;
+  return {
+    left: (bypassable ? altAttrs : attrs).left,
+    top: (bypassable ? altAttrs : attrs).top,
+    right: (bypassable ? altAttrs : attrs).right,
+    bottom: (bypassable ? altAttrs : attrs).bottom,
+    width: (bypassable ? altAttrs : attrs).width,
+    height: (bypassable ? altAttrs : attrs).height,
+    windowWidth,
+    windowHeight,
+    hasHighligtedElems,
+    x: attrs.x,
+    y: attrs.y
+  };
+}
 
 // Tour.tsx
 var Tour = (_a) => {

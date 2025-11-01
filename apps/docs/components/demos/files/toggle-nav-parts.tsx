@@ -1,6 +1,6 @@
 import { defaultFiles } from './defaults'
 
-const AppJs = `import { TourProvider } from '@reactour/tour'
+const AppJs = `import { TourProvider } from '@dezignerblake/tour'
 import { useState } from 'react'
 import { steps } from './steps.js'
 import Main from './Main.js'

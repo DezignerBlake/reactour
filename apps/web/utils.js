@@ -1,4 +1,4 @@
-import { useTour } from '@reactour/tour'
+import { useTour } from '@dezignerblake/tour'
 
 export function Placeholder({ demoId = 'basic', ...props }) {
   const { setIsOpen } = useTour()

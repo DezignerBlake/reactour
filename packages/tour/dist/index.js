@@ -70,11 +70,12 @@ __export(index_exports, {
 module.exports = __toCommonJS(index_exports);
 
 // Tour.tsx
+var import_popover = require("@dezignerblake/popover");
+var import_utils3 = require("@dezignerblake/utils");
 var import_react8 = __toESM(require("react"));
-var import_utils3 = require("@reactour/utils");
 
 // ../mask/dist/index.mjs
-var import_utils = require("@reactour/utils");
+var import_utils = require("@dezignerblake/utils");
 var import_react = __toESM(require("react"), 1);
 var defaultStyles = {
   maskWrapper: () => ({
@@ -253,160 +254,8 @@ function uniqueId(prefix) {
   return prefix + Math.random().toString(36).substring(2, 16);
 }
 
-// Tour.tsx
-var import_popover = require("@reactour/popover");
-
-// hooks.tsx
-var import_react2 = require("react");
-var import_utils2 = require("@reactour/utils");
-var initialState = {
-  bottom: 0,
-  height: 0,
-  left: 0,
-  right: 0,
-  top: 0,
-  width: 0,
-  windowWidth: 0,
-  windowHeight: 0,
-  x: 0,
-  y: 0
-};
-function useSizes(step, scrollOptions = {
-  block: "center",
-  behavior: "smooth",
-  inViewThreshold: 0
-}) {
-  const [transition, setTransition] = (0, import_react2.useState)(false);
-  const [observing, setObserving] = (0, import_react2.useState)(false);
-  const [isHighlightingObserved, setIsHighlightingObserved] = (0, import_react2.useState)(false);
-  const [refresher, setRefresher] = (0, import_react2.useState)(null);
-  const [dimensions, setDimensions] = (0, import_react2.useState)(initialState);
-  const target = (step == null ? void 0 : step.selector) instanceof Element ? step == null ? void 0 : step.selector : document.querySelector(step == null ? void 0 : step.selector);
-  const handleResize = (0, import_react2.useCallback)(() => {
-    const _a = getHighlightedRect(
-      target,
-      step == null ? void 0 : step.highlightedSelectors,
-      step == null ? void 0 : step.bypassElem
-    ), { hasHighligtedElems } = _a, newDimensions = __objRest(_a, ["hasHighligtedElems"]);
-    if (Object.entries(dimensions).some(
-      ([key, value]) => newDimensions[key] !== value
-    )) {
-      setDimensions(newDimensions);
-    }
-  }, [target, step == null ? void 0 : step.highlightedSelectors, dimensions]);
-  (0, import_react2.useEffect)(() => {
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [target, step == null ? void 0 : step.highlightedSelectors, refresher]);
-  (0, import_react2.useEffect)(() => {
-    const isInView = (0, import_utils2.inView)(__spreadProps(__spreadValues({}, dimensions), {
-      threshold: scrollOptions.inViewThreshold
-    }));
-    if (!isInView && target) {
-      setTransition(true);
-      (0, import_utils2.smoothScroll)(target, scrollOptions).then(() => {
-        if (!observing) setRefresher(Date.now());
-      }).finally(() => {
-        setTransition(false);
-      });
-    }
-  }, [dimensions]);
-  const observableRefresher = (0, import_react2.useCallback)(() => {
-    setObserving(true);
-    const _a = getHighlightedRect(
-      target,
-      step == null ? void 0 : step.highlightedSelectors,
-      step == null ? void 0 : step.bypassElem
-    ), { hasHighligtedElems } = _a, dimesions = __objRest(_a, ["hasHighligtedElems"]);
-    setIsHighlightingObserved(hasHighligtedElems);
-    setDimensions(dimesions);
-    setObserving(false);
-  }, [target, step == null ? void 0 : step.highlightedSelectors, dimensions]);
-  return {
-    sizes: dimensions,
-    transition,
-    target,
-    observableRefresher,
-    isHighlightingObserved
-  };
-}
-function getHighlightedRect(node, highlightedSelectors = [], bypassElem = true) {
-  let hasHighligtedElems = false;
-  const { w: windowWidth, h: windowHeight } = (0, import_utils2.getWindow)();
-  if (!highlightedSelectors) {
-    return __spreadProps(__spreadValues({}, (0, import_utils2.getRect)(node)), {
-      windowWidth,
-      windowHeight,
-      hasHighligtedElems: false
-    });
-  }
-  let attrs = (0, import_utils2.getRect)(node);
-  let altAttrs = {
-    bottom: 0,
-    height: 0,
-    left: windowWidth,
-    right: 0,
-    top: windowHeight,
-    width: 0
-  };
-  for (const selector of highlightedSelectors) {
-    const element = document.querySelector(selector);
-    if (!element || element.style.display === "none" || element.style.visibility === "hidden") {
-      continue;
-    }
-    const rect = (0, import_utils2.getRect)(element);
-    hasHighligtedElems = true;
-    if (bypassElem || !node) {
-      if (rect.top < altAttrs.top) {
-        altAttrs.top = rect.top;
-      }
-      if (rect.right > altAttrs.right) {
-        altAttrs.right = rect.right;
-      }
-      if (rect.bottom > altAttrs.bottom) {
-        altAttrs.bottom = rect.bottom;
-      }
-      if (rect.left < altAttrs.left) {
-        altAttrs.left = rect.left;
-      }
-      altAttrs.width = altAttrs.right - altAttrs.left;
-      altAttrs.height = altAttrs.bottom - altAttrs.top;
-    } else {
-      if (rect.top < attrs.top) {
-        attrs.top = rect.top;
-      }
-      if (rect.right > attrs.right) {
-        attrs.right = rect.right;
-      }
-      if (rect.bottom > attrs.bottom) {
-        attrs.bottom = rect.bottom;
-      }
-      if (rect.left < attrs.left) {
-        attrs.left = rect.left;
-      }
-      attrs.width = attrs.right - attrs.left;
-      attrs.height = attrs.bottom - attrs.top;
-    }
-  }
-  const bypassable = bypassElem || !node ? altAttrs.width > 0 && altAttrs.height > 0 : false;
-  return {
-    left: (bypassable ? altAttrs : attrs).left,
-    top: (bypassable ? altAttrs : attrs).top,
-    right: (bypassable ? altAttrs : attrs).right,
-    bottom: (bypassable ? altAttrs : attrs).bottom,
-    width: (bypassable ? altAttrs : attrs).width,
-    height: (bypassable ? altAttrs : attrs).height,
-    windowWidth,
-    windowHeight,
-    hasHighligtedElems,
-    x: attrs.x,
-    y: attrs.y
-  };
-}
-
 // Keyboard.tsx
-var import_react3 = require("react");
+var import_react2 = require("react");
 var Keyboard = ({
   disableKeyboardNavigation,
   setCurrentStep,
@@ -464,7 +313,7 @@ var Keyboard = ({
       }
     }
   }
-  (0, import_react3.useEffect)(() => {
+  (0, import_react2.useEffect)(() => {
     window.addEventListener("keydown", keyDownHandler, false);
     return () => {
       window.removeEventListener("keydown", keyDownHandler);
@@ -475,10 +324,10 @@ var Keyboard = ({
 var Keyboard_default = Keyboard;
 
 // components/PopoverContent.tsx
-var import_react7 = __toESM(require("react"));
+var import_react6 = __toESM(require("react"));
 
 // components/Badge.tsx
-var import_react4 = __toESM(require("react"));
+var import_react3 = __toESM(require("react"));
 
 // styles.tsx
 var defaultStyles2 = {
@@ -586,12 +435,12 @@ var Badge = ({
   children
 }) => {
   const getStyles = stylesMatcher2(styles);
-  return /* @__PURE__ */ import_react4.default.createElement("span", { style: getStyles("badge", {}) }, children);
+  return /* @__PURE__ */ import_react3.default.createElement("span", { style: getStyles("badge", {}) }, children);
 };
 var Badge_default = Badge;
 
 // components/Close.tsx
-var import_react5 = __toESM(require("react"));
+var import_react4 = __toESM(require("react"));
 var Close = (_a) => {
   var _b = _a, {
     styles = {},
@@ -603,14 +452,14 @@ var Close = (_a) => {
     "disabled"
   ]);
   const getStyles = stylesMatcher2(styles);
-  return /* @__PURE__ */ import_react5.default.createElement(
+  return /* @__PURE__ */ import_react4.default.createElement(
     "button",
     __spreadValues({
       className: "reactour__close-button",
       style: __spreadValues(__spreadValues({}, getStyles("button", {})), getStyles("close", { disabled })),
       onClick
     }, props),
-    /* @__PURE__ */ import_react5.default.createElement(
+    /* @__PURE__ */ import_react4.default.createElement(
       "svg",
       {
         viewBox: "0 0 9.1 9.1",
@@ -618,7 +467,7 @@ var Close = (_a) => {
         role: "presentation",
         style: __spreadValues({}, getStyles("svg", {}))
       },
-      /* @__PURE__ */ import_react5.default.createElement(
+      /* @__PURE__ */ import_react4.default.createElement(
         "path",
         {
           fill: "currentColor",
@@ -650,7 +499,7 @@ var Content = ({
 var Content_default = Content;
 
 // components/Navigation.tsx
-var import_react6 = __toESM(require("react"));
+var import_react5 = __toESM(require("react"));
 var Navigation = ({
   styles = {},
   steps,
@@ -687,7 +536,7 @@ var Navigation = ({
         }
       }
     }
-    return /* @__PURE__ */ import_react6.default.createElement(
+    return /* @__PURE__ */ import_react5.default.createElement(
       "button",
       {
         style: getStyles("button", {
@@ -697,7 +546,7 @@ var Navigation = ({
         onClick: clickHandler,
         "aria-label": `Go to ${kind} step`
       },
-      !hideArrow ? /* @__PURE__ */ import_react6.default.createElement(
+      !hideArrow ? /* @__PURE__ */ import_react5.default.createElement(
         Arrow,
         {
           styles,
@@ -708,16 +557,16 @@ var Navigation = ({
       children
     );
   };
-  return /* @__PURE__ */ import_react6.default.createElement("div", { style: getStyles("controls", {}), dir: rtl ? "rtl" : "ltr" }, !hideButtons ? prevButton && typeof prevButton === "function" ? prevButton({
+  return /* @__PURE__ */ import_react5.default.createElement("div", { style: getStyles("controls", {}), dir: rtl ? "rtl" : "ltr" }, !hideButtons ? prevButton && typeof prevButton === "function" ? prevButton({
     Button,
     setCurrentStep,
     currentStep,
     stepsLength,
     setIsOpen,
     steps
-  }) : /* @__PURE__ */ import_react6.default.createElement(Button, { kind: "prev" }) : null, !hideDots ? /* @__PURE__ */ import_react6.default.createElement("div", { style: getStyles("navigation", {}) }, Array.from({ length: stepsLength }, (_, i) => i).map((index) => {
+  }) : /* @__PURE__ */ import_react5.default.createElement(Button, { kind: "prev" }) : null, !hideDots ? /* @__PURE__ */ import_react5.default.createElement("div", { style: getStyles("navigation", {}) }, Array.from({ length: stepsLength }, (_, i) => i).map((index) => {
     var _a;
-    return /* @__PURE__ */ import_react6.default.createElement(
+    return /* @__PURE__ */ import_react5.default.createElement(
       "button",
       {
         style: getStyles("dot", {
@@ -738,7 +587,7 @@ var Navigation = ({
     stepsLength,
     setIsOpen,
     steps
-  }) : /* @__PURE__ */ import_react6.default.createElement(Button, null) : null);
+  }) : /* @__PURE__ */ import_react5.default.createElement(Button, null) : null);
 };
 var Navigation_default = Navigation;
 var DefaultArrow = ({
@@ -747,13 +596,13 @@ var DefaultArrow = ({
   disabled
 }) => {
   const getStyles = stylesMatcher2(styles);
-  return /* @__PURE__ */ import_react6.default.createElement(
+  return /* @__PURE__ */ import_react5.default.createElement(
     "svg",
     {
       viewBox: "0 0 18.4 14.4",
       style: getStyles("arrow", { inverted, disabled })
     },
-    /* @__PURE__ */ import_react6.default.createElement(
+    /* @__PURE__ */ import_react5.default.createElement(
       "path",
       {
         d: inverted ? "M17 7.2H1M10.8 1L17 7.2l-6.2 6.2" : "M1.4 7.2h16M7.6 1L1.4 7.2l6.2 6.2",
@@ -828,7 +677,7 @@ var PopoverContent = ({
       }
     }
   }
-  return /* @__PURE__ */ import_react7.default.createElement(import_react7.default.Fragment, null, showBadge ? /* @__PURE__ */ import_react7.default.createElement(Badge2, { styles }, badge) : null, showCloseButton ? /* @__PURE__ */ import_react7.default.createElement(
+  return /* @__PURE__ */ import_react6.default.createElement(import_react6.default.Fragment, null, showBadge ? /* @__PURE__ */ import_react6.default.createElement(Badge2, { styles }, badge) : null, showCloseButton ? /* @__PURE__ */ import_react6.default.createElement(
     Close2,
     {
       styles,
@@ -836,7 +685,7 @@ var PopoverContent = ({
       disabled: disabledActions,
       onClick: closeClickHandler
     }
-  ) : null, /* @__PURE__ */ import_react7.default.createElement(
+  ) : null, /* @__PURE__ */ import_react6.default.createElement(
     Content2,
     {
       content: step == null ? void 0 : step.content,
@@ -846,7 +695,7 @@ var PopoverContent = ({
       isHighlightingObserved,
       setIsOpen
     }
-  ), showNavigation ? /* @__PURE__ */ import_react7.default.createElement(
+  ), showNavigation ? /* @__PURE__ */ import_react6.default.createElement(
     Navigation2,
     {
       setCurrentStep,
@@ -867,6 +716,155 @@ var PopoverContent = ({
   ) : null);
 };
 var PopoverContent_default = PopoverContent;
+
+// hooks.tsx
+var import_utils2 = require("@dezignerblake/utils");
+var import_react7 = require("react");
+var initialState = {
+  bottom: 0,
+  height: 0,
+  left: 0,
+  right: 0,
+  top: 0,
+  width: 0,
+  windowWidth: 0,
+  windowHeight: 0,
+  x: 0,
+  y: 0
+};
+function useSizes(step, scrollOptions = {
+  block: "center",
+  behavior: "smooth",
+  inViewThreshold: 0
+}) {
+  const [transition, setTransition] = (0, import_react7.useState)(false);
+  const [observing, setObserving] = (0, import_react7.useState)(false);
+  const [isHighlightingObserved, setIsHighlightingObserved] = (0, import_react7.useState)(false);
+  const [refresher, setRefresher] = (0, import_react7.useState)(null);
+  const [dimensions, setDimensions] = (0, import_react7.useState)(initialState);
+  const target = (step == null ? void 0 : step.selector) instanceof Element ? step == null ? void 0 : step.selector : document.querySelector(step == null ? void 0 : step.selector);
+  const handleResize = (0, import_react7.useCallback)(() => {
+    const _a = getHighlightedRect(
+      target,
+      step == null ? void 0 : step.highlightedSelectors,
+      step == null ? void 0 : step.bypassElem
+    ), { hasHighligtedElems } = _a, newDimensions = __objRest(_a, ["hasHighligtedElems"]);
+    if (Object.entries(dimensions).some(
+      ([key, value]) => newDimensions[key] !== value
+    )) {
+      setDimensions(newDimensions);
+    }
+  }, [target, step == null ? void 0 : step.highlightedSelectors, dimensions]);
+  (0, import_react7.useEffect)(() => {
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [target, step == null ? void 0 : step.highlightedSelectors, refresher]);
+  (0, import_react7.useEffect)(() => {
+    const isInView = (0, import_utils2.inView)(__spreadProps(__spreadValues({}, dimensions), {
+      threshold: scrollOptions.inViewThreshold
+    }));
+    if (!isInView && target) {
+      setTransition(true);
+      (0, import_utils2.smoothScroll)(target, scrollOptions).then(() => {
+        if (!observing) setRefresher(Date.now());
+      }).finally(() => {
+        setTransition(false);
+      });
+    }
+  }, [dimensions]);
+  const observableRefresher = (0, import_react7.useCallback)(() => {
+    setObserving(true);
+    const _a = getHighlightedRect(
+      target,
+      step == null ? void 0 : step.highlightedSelectors,
+      step == null ? void 0 : step.bypassElem
+    ), { hasHighligtedElems } = _a, dimesions = __objRest(_a, ["hasHighligtedElems"]);
+    setIsHighlightingObserved(hasHighligtedElems);
+    setDimensions(dimesions);
+    setObserving(false);
+  }, [target, step == null ? void 0 : step.highlightedSelectors, dimensions]);
+  return {
+    sizes: dimensions,
+    transition,
+    target,
+    observableRefresher,
+    isHighlightingObserved
+  };
+}
+function getHighlightedRect(node, highlightedSelectors = [], bypassElem = true) {
+  let hasHighligtedElems = false;
+  const { w: windowWidth, h: windowHeight } = (0, import_utils2.getWindow)();
+  if (!highlightedSelectors) {
+    return __spreadProps(__spreadValues({}, (0, import_utils2.getRect)(node)), {
+      windowWidth,
+      windowHeight,
+      hasHighligtedElems: false
+    });
+  }
+  let attrs = (0, import_utils2.getRect)(node);
+  let altAttrs = {
+    bottom: 0,
+    height: 0,
+    left: windowWidth,
+    right: 0,
+    top: windowHeight,
+    width: 0
+  };
+  for (const selector of highlightedSelectors) {
+    const element = document.querySelector(selector);
+    if (!element || element.style.display === "none" || element.style.visibility === "hidden") {
+      continue;
+    }
+    const rect = (0, import_utils2.getRect)(element);
+    hasHighligtedElems = true;
+    if (bypassElem || !node) {
+      if (rect.top < altAttrs.top) {
+        altAttrs.top = rect.top;
+      }
+      if (rect.right > altAttrs.right) {
+        altAttrs.right = rect.right;
+      }
+      if (rect.bottom > altAttrs.bottom) {
+        altAttrs.bottom = rect.bottom;
+      }
+      if (rect.left < altAttrs.left) {
+        altAttrs.left = rect.left;
+      }
+      altAttrs.width = altAttrs.right - altAttrs.left;
+      altAttrs.height = altAttrs.bottom - altAttrs.top;
+    } else {
+      if (rect.top < attrs.top) {
+        attrs.top = rect.top;
+      }
+      if (rect.right > attrs.right) {
+        attrs.right = rect.right;
+      }
+      if (rect.bottom > attrs.bottom) {
+        attrs.bottom = rect.bottom;
+      }
+      if (rect.left < attrs.left) {
+        attrs.left = rect.left;
+      }
+      attrs.width = attrs.right - attrs.left;
+      attrs.height = attrs.bottom - attrs.top;
+    }
+  }
+  const bypassable = bypassElem || !node ? altAttrs.width > 0 && altAttrs.height > 0 : false;
+  return {
+    left: (bypassable ? altAttrs : attrs).left,
+    top: (bypassable ? altAttrs : attrs).top,
+    right: (bypassable ? altAttrs : attrs).right,
+    bottom: (bypassable ? altAttrs : attrs).bottom,
+    width: (bypassable ? altAttrs : attrs).width,
+    height: (bypassable ? altAttrs : attrs).height,
+    windowWidth,
+    windowHeight,
+    hasHighligtedElems,
+    x: attrs.x,
+    y: attrs.y
+  };
+}
 
 // Tour.tsx
 var Tour = (_a) => {

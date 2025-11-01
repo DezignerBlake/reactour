@@ -15,9 +15,9 @@
 ## Install
 
 ```zsh
-npm i -S @reactour/tour
+npm i -S @dezignerblake/tour
 # or
-yarn add @reactour/tour
+yarn add @dezignerblake/tour
 ```
 
 ## Usage
@@ -26,7 +26,7 @@ Add the `TourProvider` at the root of your Application, passing the `steps` of t
 
 ```js
 // ...
-import { TourProvider } from '@reactour/tour'
+import { TourProvider } from '@dezignerblake/tour'
 
 ReactDOM.render(
   <TourProvider steps={steps}>
@@ -47,7 +47,7 @@ const steps = [
 Then somewhere down the Application tree, control the Tour using `useTour` hook.
 
 ```js
-import { useTour } from '@reactour/tour'
+import { useTour } from '@dezignerblake/tour'
 
 function App() {
   const { setIsOpen } = useTour()
@@ -79,7 +79,7 @@ The [Playground](https://github.com/DezignerBlake/reactour/tree/main/packages/pl
 - [Using React Bootstrap Modal](https://codesandbox.io/s/reactour-tour-demo-using-react-bootstrap-modal-qjws4)
 - [Tour with data fetching](https://codesandbox.io/s/tour-with-data-fetching-dv2q0?file=/src/index.js)
 
-[![Edit @reactour/tour Demo Template](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/reactour-tour-demo-template-fglzv?fontsize=14&hidenavigation=1&theme=dark)
+[![Edit @dezignerblake/tour Demo Template](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/reactour-tour-demo-template-fglzv?fontsize=14&hidenavigation=1&theme=dark)
 
 > Feel free to make a PR proposing new sandboxes or demos to add in the playground.
 
@@ -168,7 +168,7 @@ Prop to customize granurally each Component inside the _Popover_.
   <summary>Example</summary>
 
 ```js
-import { components } from '@reactour/tour'
+import { components } from '@dezignerblake/tour'
 
 function Badge({ children }) {
   return (
@@ -712,7 +712,7 @@ Element which wraps the Tour, useful in case is needed to port the Tour into a [
 Later in any Component down in the tree of _TourProvider_ you can control the _Tour_ in many ways
 
 ```jsx
-import { useTour } from '@reactour/tour'
+import { useTour } from '@dezignerblake/tour'
 
 function MyComponent() {
   const { isOpen, currentStep, steps, setIsOpen, setCurrentStep, setSteps } = useTour()
@@ -783,7 +783,7 @@ In case you needed there is an enhancer that allows you to have all `useTour` fu
 
 ```jsx
 import { Component } from 'react'
-import { withTour } from '@reactour/tour'
+import { withTour } from '@dezignerblake/tour'
 
 class MyComponent extends Component {
   render() {

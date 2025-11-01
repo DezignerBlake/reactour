@@ -1,1 +1,1 @@
-module.exports = require('@reactour/config/eslint-preset')
+module.exports = require('@dezignerblake/config/eslint-preset')

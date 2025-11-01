@@ -1,4 +1,4 @@
-export const DefautltAppJs = `import { TourProvider } from '@reactour/tour'
+export const DefautltAppJs = `import { TourProvider } from '@dezignerblake/tour'
 import { steps } from './steps.js'
 import Main from './Main.js'
 	
@@ -11,7 +11,7 @@ export default function App () {
 }
 `
 
-export const DefaultMainJs = `import { useTour } from '@reactour/tour'
+export const DefaultMainJs = `import { useTour } from '@dezignerblake/tour'
 
 export default function Main () {
   const { setIsOpen } = useTour()

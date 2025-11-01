@@ -12,15 +12,15 @@ https://docs.reactour.dev/mask
 ## Install
 
 ```zsh
-npm i -S @reactour/mask
+npm i -S @dezignerblake/mask
 # or
-yarn add @reactour/mask
+yarn add @dezignerblake/mask
 ```
 
 ## Usage
 
 ```js
-import { Mask } from '@reactour/mask'
+import { Mask } from '@dezignerblake/mask'
 
 function App() {
   const sizes = {

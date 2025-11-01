@@ -1,6 +1,6 @@
-import { TourProvider } from '@reactour/tour'
-import { ModalProvider } from 'modaaals'
+import { TourProvider } from '@dezignerblake/tour'
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
+import { ModalProvider } from 'modaaals'
 import { isMobile } from 'react-device-detect'
 import Home from '../components/Home'
 import Portal from '../components/Portal'

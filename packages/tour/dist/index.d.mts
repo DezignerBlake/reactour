@@ -1,9 +1,9 @@
 import * as React$1 from 'react';
 import React__default, { Dispatch, ReactNode, ComponentType, ReactElement } from 'react';
-import { PopoverStylesObj, Position, PositionProps } from '@reactour/popover';
-export { Position } from '@reactour/popover';
-import { MaskStylesObj } from '@reactour/mask';
-import { RectResult } from '@reactour/utils';
+import { MaskStylesObj } from '@dezignerblake/mask';
+import { PopoverStylesObj, Position, PositionProps } from '@dezignerblake/popover';
+export { Position } from '@dezignerblake/popover';
+import { RectResult } from '@dezignerblake/utils';
 
 type StylesKeys = 'badge' | 'controls' | 'navigation' | 'button' | 'arrow' | 'dot' | 'close' | 'svg';
 type StylesObj = {

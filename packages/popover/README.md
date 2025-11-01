@@ -12,7 +12,7 @@ https://docs.reactour.dev/popover
 ## Install
 
 ```zsh
-npm i -S @reactour/popover
+npm i -S @dezignerblake/popover
 # or
 yarn add @reacmask/popover
 ```
@@ -20,7 +20,7 @@ yarn add @reacmask/popover
 ## Usage
 
 ```js
-import { Popover } from '@reactour/popover'
+import { Popover } from '@dezignerblake/popover'
 
 function App() {
   const sizes = {

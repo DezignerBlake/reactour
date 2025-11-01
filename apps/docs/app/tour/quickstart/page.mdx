@@ -2,10 +2,10 @@
 
 Tourist Guide into your React Components
 
-## Install [@reactour/tour](https://www.npmjs.com/package/@reactour/tour)
+## Install [@dezignerblake/tour](https://www.npmjs.com/package/@dezignerblake/tour)
 
 ```sh npm2yarn
-npm i @reactour/tour
+npm i @dezignerblake/tour
 ```
 
 ## Usage
@@ -19,7 +19,7 @@ import { Steps } from 'nextra/components'
 This should be at the root of your Application, passing the steps of the elements to highlight during the Tour.
 
 ```js
-import { TourProvider } from '@reactour/tour'
+import { TourProvider } from '@dezignerblake/tour'
 
 ReactDOM.render(
   <TourProvider steps={steps}>
@@ -42,7 +42,7 @@ const steps = [
 Then somewhere down the Application tree, control the Tour using `useTour` hook.
 
 ```js
-import { useTour } from '@reactour/tour'
+import { useTour } from '@dezignerblake/tour'
 
 function App() {
   const { setIsOpen } = useTour()

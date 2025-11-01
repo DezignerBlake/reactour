@@ -1,5 +1,5 @@
+import { RectResult } from '@dezignerblake/utils';
 import React$1 from 'react';
-import { RectResult } from '@reactour/utils';
 
 type StylesKeys = 'popover';
 type StylesObj = {

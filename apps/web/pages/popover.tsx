@@ -1,9 +1,9 @@
-import { useState, useRef, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Popover } from '@reactour/popover'
-import { Mask } from '@reactour/mask'
-import { useRect, useIntersectionObserver, RectResult } from '@reactour/utils'
+import { Mask } from '@dezignerblake/mask'
+import { Popover } from '@dezignerblake/popover'
+import { RectResult, useIntersectionObserver, useRect } from '@dezignerblake/utils'
 import { CSSObject } from '@emotion/react'
+import { AnimatePresence, motion } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
 import { useMousePosition } from '../hooks'
 
 export default function Docs() {

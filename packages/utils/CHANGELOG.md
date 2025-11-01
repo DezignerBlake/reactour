@@ -1,4 +1,4 @@
-# @reactour/utils
+# @dezignerblake/utils
 
 ## 0.6.0
 

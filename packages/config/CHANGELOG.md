@@ -1,4 +1,4 @@
-# @reactour/config
+# @dezignerblake/config
 
 ## 0.1.0
 

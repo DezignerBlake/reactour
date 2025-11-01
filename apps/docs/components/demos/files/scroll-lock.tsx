@@ -1,6 +1,6 @@
 import { defaultFiles } from './defaults'
 
-const AppJs = `import { TourProvider } from '@reactour/tour'
+const AppJs = `import { TourProvider } from '@dezignerblake/tour'
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import { steps } from './steps.js'
 import Main from './Main.js'
@@ -16,7 +16,7 @@ export default function App () {
 }
 `
 
-const MainJs = `import { useTour } from '@reactour/tour'
+const MainJs = `import { useTour } from '@dezignerblake/tour'
 
 export default function Main () {
   const { setIsOpen } = useTour()

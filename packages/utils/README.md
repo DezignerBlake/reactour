@@ -8,7 +8,7 @@
 ## Install
 
 ```zsh
-npm i -S @reactour/utils
+npm i -S @dezignerblake/utils
 # or
 yarn add @reacmask/utils
 ```
@@ -22,7 +22,7 @@ A handy Portal Component
 The type of Element to render in the DOM
 
 ```js
-import { Portal } from '@reactour/utils'
+import { Portal } from '@dezignerblake/utils'
 function App() {
   return <Portal type="div">{/* ...*/}</Portal>
 }
@@ -45,7 +45,7 @@ A component used by _Tour_ to handle Mutation and Resize Observer.
 Function to fire on each mutation update
 
 ```js
-import { Portal } from '@reactour/utils'
+import { Portal } from '@dezignerblake/utils'
 function App() {
   function refresh() {
     console.log('mutated!')
@@ -82,7 +82,7 @@ Any value that if changed, updates calculations
 
 ```js
 import { useRef } from 'react'
-import { useRect } from '@reactour/utils'
+import { useRect } from '@dezignerblake/utils'
 function App() {
   const ref = useRef(null)
   const sizes = useRect(ref)
@@ -108,7 +108,7 @@ DOM [Element](https://developer.mozilla.org/en-US/docs/Web/API/Element)
 Any value that if changed, updates calculations
 
 ```js
-import { useElemRect } from '@reactour/utils'
+import { useElemRect } from '@dezignerblake/utils'
 function App() {
   const elem = document.querySelector('.elem')
   const sizes = useElemRect(elem)
@@ -155,7 +155,7 @@ const sizes = getRect(elem)
 Get window `width` and `height`
 
 ```js
-import { getWindow } from '@reactour/utils'
+import { getWindow } from '@dezignerblake/utils'
 
 const { w, h } = getWindow()
 ```
@@ -182,7 +182,7 @@ type InViewArgs = {
 Check if position values are in viewport
 
 ```js
-import { inView } from '@reactour/utils'
+import { inView } from '@dezignerblake/utils'
 
 const isInView = inView({ top: 10, right: 10, bottom: 10, left: 10 })
 ```

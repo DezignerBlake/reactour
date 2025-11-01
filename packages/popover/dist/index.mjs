@@ -28,15 +28,15 @@ var __objRest = (source, exclude) => {
 };
 
 // Popover.tsx
-import React, { useRef } from "react";
 import {
-  useRect,
   bestPositionOf,
+  getPadding,
+  getWindow,
   isOutsideX,
   isOutsideY,
-  getWindow,
-  getPadding
-} from "@reactour/utils";
+  useRect
+} from "@dezignerblake/utils";
+import React, { useRef } from "react";
 
 // styles.tsx
 var defaultStyles = {

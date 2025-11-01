@@ -62,8 +62,8 @@ __export(index_exports, {
 module.exports = __toCommonJS(index_exports);
 
 // Popover.tsx
+var import_utils = require("@dezignerblake/utils");
 var import_react = __toESM(require("react"));
-var import_utils = require("@reactour/utils");
 
 // styles.tsx
 var defaultStyles = {

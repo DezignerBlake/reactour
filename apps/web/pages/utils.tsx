@@ -1,5 +1,5 @@
+import { inView, smoothScroll, useRect } from '@dezignerblake/utils'
 import { useEffect, useRef, useState } from 'react'
-import { inView, useRect, smoothScroll } from '@reactour/utils'
 
 export default function Docs() {
   const [scrolled, setScrolled] = useState(false)

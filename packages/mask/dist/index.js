@@ -36,7 +36,7 @@ __export(index_exports, {
 module.exports = __toCommonJS(index_exports);
 
 // Mask.tsx
-var import_utils = require("@reactour/utils");
+var import_utils = require("@dezignerblake/utils");
 var import_react = __toESM(require("react"));
 
 // styles.tsx

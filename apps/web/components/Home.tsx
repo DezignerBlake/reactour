@@ -1,4 +1,4 @@
-import { useTour } from '@reactour/tour'
+import { useTour } from '@dezignerblake/tour'
 import { ModalContext } from 'modaaals'
 import { useContext, useEffect } from 'react'
 import Box from './Box'

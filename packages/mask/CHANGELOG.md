@@ -1,4 +1,4 @@
-# @reactour/mask
+# @dezignerblake/mask
 
 ## 1.2.0
 
@@ -9,7 +9,7 @@
 ### Patch Changes
 
 - Updated dependencies
-  - @reactour/utils@0.6.0
+  - @dezignerblake/utils@0.6.0
 
 ## 1.1.0
 
@@ -20,7 +20,7 @@
 ### Patch Changes
 
 - Updated dependencies
-  - @reactour/utils@0.5.0
+  - @dezignerblake/utils@0.5.0
 
 ## 1.0.5
 
@@ -34,7 +34,7 @@
 
 - 57bc37f: Fix export
 - Updated dependencies [57bc37f]
-  - @reactour/utils@0.4.3
+  - @dezignerblake/utils@0.4.3
 
 ## 1.0.3
 
@@ -42,7 +42,7 @@
 
 - b3301d2: Attemp to solve react external issue, using tsdx
 - Updated dependencies [b3301d2]
-  - @reactour/utils@0.4.2
+  - @dezignerblake/utils@0.4.2
 
 ## 1.0.2
 
@@ -50,7 +50,7 @@
 
 - Fix build step including /dist folder
 - Updated dependencies
-  - @reactour/utils@0.4.1
+  - @dezignerblake/utils@0.4.1
 
 ## 1.0.1
 

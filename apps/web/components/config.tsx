@@ -1,7 +1,7 @@
-import { StepType } from '@reactour/tour'
+import { StepType } from '@dezignerblake/tour'
+import { Link } from './Button'
 import Text from './Text'
 import Tooltip from './Tooltip'
-import { Link } from './Button'
 
 const tourConfig: StepType[] = [
   {
@@ -157,3 +157,4 @@ const tourConfigAlt: StepType[] = [
 ]
 
 export { tourConfig, tourConfigAlt }
+

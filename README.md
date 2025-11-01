@@ -11,19 +11,19 @@ https://docs.reactour.dev
 
 ## Packages
 
-### [@reactour/tour](https://github.com/DezignerBlake/reactour/tree/main/packages/tour)
+### [@dezignerblake/tour](https://github.com/DezignerBlake/reactour/tree/main/packages/tour)
 
 The main package, which uses the other ones to highlight parts of your application from an array of steps.
 
-### [@reactour/mask](https://github.com/DezignerBlake/reactour/tree/main/packages/mask)
+### [@dezignerblake/mask](https://github.com/DezignerBlake/reactour/tree/main/packages/mask)
 
 A customizable Component to highlight certain element or area of the viewport.
 
-### [@reactour/popover](https://github.com/DezignerBlake/reactour/tree/main/packages/popover)
+### [@dezignerblake/popover](https://github.com/DezignerBlake/reactour/tree/main/packages/popover)
 
 A customizable Component to attach to an element or position of the viewport to show content.
 
-### [@reactour/utils](https://github.com/DezignerBlake/reactour/tree/main/packages/utils)
+### [@dezignerblake/utils](https://github.com/DezignerBlake/reactour/tree/main/packages/utils)
 
 A set of helper functions used by the other packages.
 

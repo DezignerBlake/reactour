@@ -1,5 +1,5 @@
 // Mask.tsx
-import { getPadding, getWindow, safe } from "@reactour/utils";
+import { getPadding, getWindow, safe } from "@dezignerblake/utils";
 import React from "react";
 
 // styles.tsx

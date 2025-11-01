@@ -1,4 +1,4 @@
-import { getPadding, getWindow, RectResult, safe } from '@reactour/utils'
+import { getPadding, getWindow, RectResult, safe } from '@dezignerblake/utils'
 import React, { MouseEventHandler } from 'react'
 import { stylesMatcher, StylesObj } from './styles'
 

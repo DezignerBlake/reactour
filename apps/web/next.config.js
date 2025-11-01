@@ -1,8 +1,8 @@
 const withTM = require('next-transpile-modules')([
-  '@reactour/utils',
-  '@reactour/mask',
-  '@reactour/popover',
-  '@reactour/tour',
+  '@dezignerblake/utils',
+  '@dezignerblake/mask',
+  '@dezignerblake/popover',
+  '@dezignerblake/tour',
 ])
 
 module.exports = withTM({

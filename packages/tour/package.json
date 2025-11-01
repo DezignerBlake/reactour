@@ -1,5 +1,5 @@
 {
-  "name": "@reactour/tour",
+  "name": "@dezignerblake/tour",
   "version": "3.8.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -7,8 +7,8 @@
   "sideEffects": false,
   "license": "MIT",
   "devDependencies": {
-    "@reactour/config": "*",
-    "@reactour/tsconfig": "*",
+    "@dezignerblake/config": "*",
+    "@dezignerblake/tsconfig": "*",
     "@types/react": "^19.1.12",
     "@types/react-dom": "^19.1.9",
     "react": "^19.1.1",
@@ -16,9 +16,9 @@
     "typescript": "^5.9.2"
   },
   "dependencies": {
-    "@reactour/mask": "*",
-    "@reactour/popover": "*",
-    "@reactour/utils": "*"
+    "@dezignerblake/mask": "*",
+    "@dezignerblake/popover": "*",
+    "@dezignerblake/utils": "*"
   },
   "peerDependencies": {
     "react": "16.x || 17.x || 18.x || 19.x"

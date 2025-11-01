@@ -1,4 +1,4 @@
-# @reactour/tour
+# @dezignerblake/tour
 
 ## 3.8.0
 
@@ -9,9 +9,9 @@
 ### Patch Changes
 
 - Updated dependencies
-  - @reactour/popover@1.3.0
-  - @reactour/utils@0.6.0
-  - @reactour/mask@1.2.0
+  - @dezignerblake/popover@1.3.0
+  - @dezignerblake/utils@0.6.0
+  - @dezignerblake/mask@1.2.0
 
 ## 3.7.0
 
@@ -25,7 +25,7 @@
 
 - Fix issue with padding calculations
 - Updated dependencies
-  - @reactour/popover@1.1.2
+  - @dezignerblake/popover@1.1.2
 
 ## 3.6.2
 
@@ -60,9 +60,9 @@
 ### Patch Changes
 
 - Updated dependencies
-  - @reactour/mask@1.1.0
-  - @reactour/popover@1.1.0
-  - @reactour/utils@0.5.0
+  - @dezignerblake/mask@1.1.0
+  - @dezignerblake/popover@1.1.0
+  - @dezignerblake/utils@0.5.0
 
 ## 3.3.0
 
@@ -130,7 +130,7 @@
 
 - Fix Observable issue
 - Updated dependencies
-  - @reactour/utils@0.4.7
+  - @dezignerblake/utils@0.4.7
 
 ## 3.1.3
 
@@ -159,8 +159,8 @@
 ### Patch Changes
 
 - Updated dependencies
-  - @reactour/popover@1.0.5
-  - @reactour/utils@0.4.6
+  - @dezignerblake/popover@1.0.5
+  - @dezignerblake/utils@0.4.6
 
 ## 3.0.5
 
@@ -168,9 +168,9 @@
 
 - 57bc37f: Fix export
 - Updated dependencies [57bc37f]
-  - @reactour/mask@1.0.4
-  - @reactour/popover@1.0.4
-  - @reactour/utils@0.4.3
+  - @dezignerblake/mask@1.0.4
+  - @dezignerblake/popover@1.0.4
+  - @dezignerblake/utils@0.4.3
 
 ## 3.0.4
 
@@ -178,9 +178,9 @@
 
 - b3301d2: Attemp to solve react external issue, using tsdx
 - Updated dependencies [b3301d2]
-  - @reactour/mask@1.0.3
-  - @reactour/popover@1.0.3
-  - @reactour/utils@0.4.2
+  - @dezignerblake/mask@1.0.3
+  - @dezignerblake/popover@1.0.3
+  - @dezignerblake/utils@0.4.2
 
 ## 3.0.3
 
@@ -188,9 +188,9 @@
 
 - Fix build step including /dist folder
 - Updated dependencies
-  - @reactour/mask@1.0.2
-  - @reactour/popover@1.0.2
-  - @reactour/utils@0.4.1
+  - @dezignerblake/mask@1.0.2
+  - @dezignerblake/popover@1.0.2
+  - @dezignerblake/utils@0.4.1
 
 ## 3.0.2
 
@@ -198,5 +198,5 @@
 
 - Fix issues related on css-in-js agnostic
 - Updated dependencies
-  - @reactour/mask@1.0.1
-  - @reactour/popover@1.0.1
+  - @dezignerblake/mask@1.0.1
+  - @dezignerblake/popover@1.0.1

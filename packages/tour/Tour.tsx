@@ -1,11 +1,11 @@
-import React, { useEffect, MouseEventHandler } from 'react'
-import { Observables } from '@reactour/utils'
+import { Popover } from '@dezignerblake/popover'
+import { Observables } from '@dezignerblake/utils'
+import React, { useEffect } from 'react'
 import { Mask } from '../mask'
-import { Popover } from '@reactour/popover'
-import { useSizes } from './hooks'
-import { TourProps, Padding } from './types'
 import Keyboard from './Keyboard'
 import PopoverContent from './components/PopoverContent'
+import { useSizes } from './hooks'
+import { Padding, TourProps } from './types'
 
 const Tour: React.FC<TourProps> = ({
   currentStep,

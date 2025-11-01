@@ -16,7 +16,7 @@ const Demo: React.FC<
         theme={monokaiPro}
         customSetup={{
           dependencies: {
-            '@reactour/tour': '*',
+            '@dezignerblake/tour': '*',
             ...dependencies,
           },
         }}
